@@ -1,0 +1,28 @@
+{
+  "root": "apps/my-nc-nuevo-e2e",
+  "sourceRoot": "apps/my-nc-nuevo-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/my-nc-nuevo-e2e/cypress.json",
+        "devServerTarget": "my-nc-nuevo:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "my-nc-nuevo:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/my-nc-nuevo-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["my-nc-nuevo"]
+}
